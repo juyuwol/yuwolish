@@ -6,7 +6,7 @@
 
 ![스크린샷](/screenshot.png)
 
-[데모 사이트](https://yuwol.pe.kr/yuwolish/)
+[데모 사이트](https://yuwolish.yuwol.pe.kr/)
 
 ## 특징
 
