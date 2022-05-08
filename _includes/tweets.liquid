@@ -1,0 +1,6 @@
+<div class="twitter-thread">
+{%- for tweet_url in page.tweets -%}
+{%- capture tweet_snippet %}{% twitter tweet_url lang=ko omit_script=true %}{% endcapture %}
+{{ tweet_snippet | tweet_content }}
+{%- endfor %}
+</div>

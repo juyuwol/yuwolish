@@ -1,0 +1,10 @@
+---
+layout: none
+---
+{%- if site.searchable == false -%}
+User-agent: *
+Disallow: /
+
+User-agent: Twitterbot
+Disallow:
+{% endif -%}

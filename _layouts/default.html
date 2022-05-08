@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  {%- if page.url == '/' %}
+  {%- assign title = site.title %}
+  <title>{{ site.title }}</title>
+  {%- else %}
+  {%- assign title = page.title %}
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {%- endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#494949" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  <link rel="stylesheet" href="{{ '/assets/default.css' | relative_url }}" />
+  <script src="{{ '/assets/tools.js' | relative_url }}"></script>
+  {%- for script in page.scripts %}
+  <script src="{{ script.path | relative_url }}"{% if script.attr %}{{ script.attr }}=""{% endif %}></script>
+  {%- endfor %}
+  {%- assign favicons = site.favicons %}
+  {%- if favicons.size > 0 %}
+  {%- for favicon in favicons %}
+  <link rel="icon" href="{{ favicon.path | relative_url }}"{% if favicons.size > 1 %} sizes="{{ favicon.sizes }}"{% endif %} />
+  {%- endfor %}
+  {%- endif %}
+  {%- if page.meta_robots %}
+  <meta name="robots" content="{{ page.meta_robots }}" />
+  {%- endif %}
+  {%- if page.url != '/404.html' %}
+  <meta name="twitter:card" content="{{ page.twitter.card | default: 'summary' }}" />
+  <meta property="og:title" content="{{ title }}" />
+  {%- assign image = page.image %}
+  {%- if image and image.path %}
+  <meta property="og:image" content="{{ image.path | absolute_url }}" />
+  {%- if image.alt %}
+  <meta property="og:image:alt" content="{{ image.alt }}" />
+  {%- endif %}
+  {%- endif %}
+  {%- if page.url == '/' %}
+  <meta property="og:description" content="{{ site.description }}" />
+  {%- elsif page.description %}
+  <meta property="og:description" content="{{ page.description }}" />
+  {%- endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  {%- endif %}
+  <link rel="alternate" href="{{ '/feed.xml' | relative_url }}" type="application/rss+xml" />
+  <link rel="author" href="{{ '/humans.txt' | relative_url }}" />
+</head>
+<body id="top"{% if page.url == '/' %} class="home"{% endif %}>
+  <header class="nav">
+    <div id="header" class="container">
+      {%- if page.url != '/' %}
+      <p class="navitem float-left"><a href="/">{{ site.title }}</a></p>
+      {%- endif %}
+      <p class="navitem float-right">
+        <button id="setting-toggle" type="button" hidden=""><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true" focusable="false"><path d="m8 4a1 1 0 000 8 1 1 0 000-8v-3m-5 2 2 2m-4 3h3m-1 5 2-2m3 1v3m3-4 2 2m-1-5h3m-4-3 2-2" /></svg>설정</span></button>
+      </p>
+    </div>
+  </header>
+  <main>
+    {%- unless page.url == '/' %}
+    <div id="content" class="container">
+      <h1>{{ page.title }}</h1>
+      {%- if page.date %}
+      <p class="dateline"><time datetime="{{ page.date | date: '%F' }}">{{ page.date | date: '%Y년 %-m월 %-d일' }}</time> 발행</p>
+      {%- endif %}
+      {{ content | strip }}
+    </div>
+    {%- else %}
+    <div id="content">
+      <div class="nav">
+        <div class="container">
+          <h1>{{ site.title }}</h1>
+          <p class="subtitle">{{ site.description }}</p>
+        </div>
+      </div>
+      <div class="container">
+        {{ content | strip }}
+      </div>
+    </div>
+    {%- endunless %}
+  </main>
+  <footer class="nav">
+    <div id="footer" class="container">
+      <div class="navitem float-left">
+        <address class="author">
+          <p>{{ site.author.name }}</p>
+          {%- for link in site.author.links %}
+          <p><a href="{{ link.url }}">{{ link.label }}</a></p>
+          {%- endfor %}
+        </address>
+        <p><a href="/feed.xml">RSS 피드</a></p>
+      </div>
+      <p class="navitem float-right">
+        <a class="totop" href="#top"><span aria-hidden="true">↑</span> 위로</a>
+        <button class="totop" type="button" hidden=""><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true" focusable="false"><path d="m3 10 5-5 5 5" /></svg>위로</span></button>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

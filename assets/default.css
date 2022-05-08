@@ -1,0 +1,682 @@
+/* root */
+html {
+	line-height: 1.6;
+	word-wrap: break-word;
+	overflow-wrap: anywhere;
+	overflow-y: scroll;
+	text-underline-position: under;
+}
+
+/* font boosting fix */
+* {
+	max-height: 1000000em;
+}
+
+/* utility */
+[hidden] {
+	display: none;
+}
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+
+/* global */
+small {
+	font-size: 0.875em;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+h1,
+h2,
+h3 {
+	font-weight: 700;
+	word-break: keep-all;
+}
+h1 {
+	font-size: 2em;
+	margin: 1em 0 0.5em;
+}
+h2 {
+	font-size: 1.25em;
+	margin: 1.6em 0 0.8em;
+}
+h3 {
+	font-size: 1em;
+	margin: 2em 0 1em;
+}
+h1 + h2 {
+	margin-top: 0.8em;
+}
+h2 + h3 {
+	margin-top: 1em;
+}
+ol,
+ul {
+	padding-left: 2.5em;
+}
+li {
+	margin: 1em 0;
+}
+li > p {
+	margin: 0.6em 0;
+}
+blockquote {
+	border-left: 0.25em solid;
+	margin: 1.3em 0;
+	padding: 0 1em;
+}
+blockquote + blockquote {
+	margin-top: 1.6em;
+}
+blockquote > :first-child {
+	margin-top: 0;
+}
+.cite {
+	font-size: 0.875em;
+	text-align: right;
+	word-break: keep-all;
+}
+hr {
+	border: 0;
+	margin: 1em 0;
+	min-height: 1em;
+}
+hr:before {
+	content: ' ';
+	white-space: pre;
+}
+button {
+	border: 1px solid;
+	border-radius: 0.3em;
+	font: inherit;
+	margin: 0;
+	padding: 0 0.6em;
+	text-decoration: none;
+	word-break: keep-all;
+}
+::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+button > span {
+	display: flex;
+	align-items: center;
+}
+button svg {
+	width: 1em;
+	height: 1em;
+	margin-right: 0.15em;
+}
+input,
+select {
+	font: inherit;
+	border: 1px solid;
+	max-width: 100%;
+}
+input {
+	box-sizing: border-box;
+	padding: 0 0.3em;
+}
+label,
+label span {
+	display: inline-block;
+	max-width: 100%;
+}
+
+/* layout */
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	height: 100vh;
+}
+header,
+main,
+footer {
+	display: block;
+	flex-shrink: 0;
+}
+footer {
+	flex-grow: 1;
+}
+.nav a {
+	text-decoration: none;
+}
+.nav a:hover,
+.nav a:focus {
+	text-decoration: underline;
+}
+.container {
+	display: block;
+	margin: 0 auto;
+	padding-right: 16px;
+	padding-left: 16px;
+	overflow: auto;
+	max-width: 30em;
+}
+.wide .container {
+	max-width: 50em;
+}
+#header {
+	padding-bottom: 0.6em;
+}
+#footer {
+	padding-top: 2em;
+	padding-bottom: 3em;
+}
+.navitem {
+	margin: 0;
+}
+.navitem.float-right {
+	margin-left: 48px;
+}
+#header .navitem {
+	margin-top: 0.6em;
+}
+#footer .navitem {
+	margin-top: 1em;
+}
+.js-tools #setting-toggle {
+	display: block;
+	float: right;
+	font-size: 0.875em;
+	margin-left: 1em;
+}
+#setting {
+	font-size: 0.875em;
+	clear: both;
+	float: right;
+	max-width: 100%;
+}
+#setting p {
+	margin: 0.6em 0 0;
+}
+#wrapper-light {
+	display: none;
+}
+@media (prefers-color-scheme: dark) {
+	#wrapper-light {
+		display: inline-block;
+	}
+	#wrapper-dark {
+		display: none;
+	}
+}
+#setting [type="number"] {
+	-moz-appearance: textfield;
+	width: 3em;
+}
+#setting ::-webkit-outer-spin-button,
+#setting ::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+#content {
+	padding-bottom: 2em;
+	min-height: 18em;
+}
+.subtitle {
+	word-break: keep-all;
+}
+.dateline {
+	text-align: right;
+	word-break: keep-all;
+}
+footer .navitem p {
+	font-size: 0.875em;
+}
+.author {
+	font-style: inherit;
+}
+.author > p {
+	margin: 0;
+}
+.author ~ p {
+	margin: 1em 0 0;
+}
+.totop {
+	font-size: 0.875em;
+}
+button.totop {
+	display: none;
+}
+.js-tools a.totop {
+	display: none;
+}
+.js-tools button.totop {
+	display: block;
+}
+
+/* content */
+.fic {
+	text-indent: 1em;
+}
+.cushion {
+	height: 100vh;
+}
+.twitter-tweet {
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 12px;
+	margin: 1em 0;
+	padding: 1em;
+}
+.twitter-thread > .twitter-tweet:first-child {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-bottom: 0;
+}
+.twitter-thread > .twitter-tweet + .twitter-tweet {
+	border-top: 0;
+}
+.twitter-thread > .twitter-tweet:not(:first-child):not(:last-child) {
+	border-radius: 0;
+	margin: 0;
+}
+.twitter-thread > .twitter-tweet:last-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-top: 0;
+}
+.twitter-tweet .twitter-tweet {
+	margin: 1em 0;
+}
+.twitter-tweet > .twitter-tweet:first-child {
+	margin-top: 0;
+}
+.twitter-tweet > p:last-child {
+	font-size: 0.875em;
+	margin-bottom: 0;
+}
+.twitter-tweet img {
+	display: block;
+}
+
+/* page: / */
+.home #header:before {
+	content: '.';
+	display: block;
+	float: left;
+	margin-top: 0.6em;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+}
+.home h2:first-child {
+	margin-top: 0.8em;
+}
+
+/* page: /search/ */
+#search-box,
+#search-result {
+	display: none;
+}
+.js-search #search-box {
+	display: flex;
+	margin: 2em 0;
+	max-width: 20em;
+}
+#search-field {
+	flex-grow: 1;
+	margin: 0 0.3em 0 0;
+	width: 0;
+}
+.js-search #search-result {
+	display: block;
+}
+.js-search #search-failure {
+	display: none;
+}
+#search-failure > h2 {
+	margin-top: 0.8em;
+}
+
+/* theme: light (default) */
+html,
+.light {
+	color-scheme: light;
+}
+body,
+.light body {
+	accent-color: #494949;
+	background-color: #ffffff;
+	color: #000000;
+}
+:focus,
+.light :focus {
+	box-shadow: 0 0 0 2px #000000;
+}
+.nav :focus,
+.light .nav :focus {
+	box-shadow: 0 0 0 2px #ffffff;
+}
+:focus:not(:focus-visible),
+.light :focus:not(:focus-visible),
+.dark :focus:not(:focus-visible),
+.nav :focus:not(:focus-visible),
+.light .nav :focus:not(:focus-visible),
+.dark .nav :focus:not(:focus-visible) {
+	box-shadow: none;
+}
+body:focus,
+div:focus {
+	box-shadow: none !important; /* ie11 fix */
+}
+a,
+.light a {
+	color: #002390;
+}
+a:visited,
+.light a:visited {
+	color: #290042;
+}
+a:active,
+.light a:active {
+	background-color: #000000;
+	color: #ffffff;
+}
+h1,
+h2,
+h3,
+.light h1,
+.light h2,
+.light h3 {
+	color: inherit;
+}
+blockquote,
+.light blockquote {
+	border-color: #a0a0a0;
+}
+button,
+.light button {
+	background-color: #494949;
+	border-color: #494949;
+	color: #ffffff;
+}
+button:focus,
+button:hover,
+.light button:focus,
+.light button:hover {
+	background-color: #000000;
+	border-color: #000000;
+	color: #ffffff;
+}
+.nav button,
+.nav button:focus,
+.nav button:hover,
+.light .nav button,
+.light .nav button:focus,
+.light .nav button:hover {
+	border-color: #ffffff;
+}
+button:active,
+.light button:active {
+	background-color: #ffffff;
+	border-color: #000000;
+	color: #000000;
+}
+.nav button:active,
+.light .nav button:active {
+	border-color: #ffffff;
+}
+input,
+select,
+.light input,
+.light select {
+	background-color: #ffffff;
+	border-color: #a0a0a0;
+	color: #000000;
+}
+input:hover,
+select:hover,
+input:focus,
+select:focus,
+.light input:hover,
+.light select:hover,
+.light input:focus,
+.light select:focus {
+	border-color: #000000;
+}
+::placeholder,
+.light ::placeholder {
+	color: #818181;
+}
+.nav,
+.light .nav {
+	accent-color: #ffffff;
+	background-color: #494949;
+	color: #ffffff;
+}
+.nav a,
+.nav h1,
+.light .nav a,
+.light .nav h1 {
+	color: inherit;
+}
+.nav a:active,
+.light .nav a:active {
+	background-color: #ffffff;
+	color: #000000;
+}
+.twitter-tweet,
+.light .twitter-tweet {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+/* theme: dark */
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+	body {
+		accent-color: #ececec;
+		background-color: #000000;
+		color: #ececec;
+	}
+	:focus,
+	.nav :focus {
+		box-shadow: 0 0 0 2px #ececec;
+	}
+	a {
+		color: #ffff83;
+	}
+	a:visited {
+		color: #f2f2c9;
+	}
+	a:active {
+		background-color: #ececec;
+		color: #000000;
+	}
+	h1,
+	h2,
+	h3,
+	.nav h1 {
+		color: inherit;
+	}
+	blockquote {
+		border-color: #757575;
+	}
+	button {
+		background-color: #000000;
+		border-color: #949494;
+		color: #ececec;
+	}
+	.nav button {
+		border-color: #949494;
+	}
+	button:hover,
+	button:focus,
+	.nav button:focus,
+	.nav button:hover {
+		border-color: #ececec;
+	}
+	button:active {
+		background-color: #ececec;
+		border-color: #ececec;
+		color: #000000;
+	}
+	input,
+	select {
+		background-color: #000000;
+		border-color: #949494;
+		color: #ececec;
+	}
+	input:hover,
+	select:hover,
+	input:focus,
+	select:focus {
+		border-color: #ececec;
+	}
+	::placeholder {
+		color: #b4b4b4;
+	}
+	.nav {
+		accent-color: inherit;
+		background-color: inherit;
+		color: inherit;
+	}
+	.nav a {
+		color: inherit;
+	}
+	.nav a:active {
+		background-color: #ececec;
+		color: #000000;
+	}
+	.twitter-tweet {
+		background-color: transparent;
+		color: inherit;
+	}
+}
+.dark {
+	color-scheme: dark;
+}
+.dark body {
+	accent-color: #ececec;
+	background-color: #000000;
+	color: #ececec;
+}
+.dark :focus,
+.dark .nav :focus {
+	box-shadow: 0 0 0 2px #ececec;
+}
+.dark a {
+	color: #ffff83;
+}
+.dark a:visited {
+	color: #f2f2c9;
+}
+.dark a:active {
+	background-color: #ececec;
+	color: #000000;
+}
+.dark h1,
+.dark h2,
+.dark h3 {
+	color: inherit;
+}
+.dark blockquote {
+	border-color: #757575;
+}
+.dark button {
+	background-color: #000000;
+	border-color: #949494;
+	color: #ececec;
+}
+.dark button:hover,
+.dark button:focus {
+	border-color: #ececec;
+}
+.dark button:active {
+	background-color: #ececec;
+	color: #000000;
+}
+.dark input,
+.dark select {
+	background-color: #000000;
+	border-color: #949494;
+	color: #ececec;
+}
+.dark input:hover,
+.dark select:hover,
+.dark input:focus,
+.dark select:focus {
+	border-color: #ececec;
+}
+.dark ::placeholder {
+	color: #b4b4b4;
+}
+.dark .nav {
+	accent-color: inherit;
+	background-color: inherit;
+	color: inherit;
+}
+.dark .nav a {
+	color: inherit;
+}
+.dark .nav a:active {
+	background-color: #ececec;
+	color: #000000;
+}
+.dark .twitter-tweet {
+	background-color: transparent;
+	color: inherit;
+}
+
+/* font */
+@font-face {
+	font-family: 'KoddiUD OnGothic Web';
+	font-weight: 400;
+	font-display: block;
+	src: url('fonts/KoddiUDOnGothic-Regular.woff2') format('woff2'), url('fonts/KoddiUDOnGothic-Regular.woff') format('woff');
+}
+@font-face {
+	font-family: 'KoddiUD OnGothic Web';
+	font-weight: 700;
+	font-display: block;
+	src: url('fonts/KoddiUDOnGothic-Bold.woff2') format('woff2'), url('fonts/KoddiUDOnGothic-Bold.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard Web';
+	font-weight: 400;
+	font-display: block;
+	src: url('fonts/Pretendard-Regular.woff2') format('woff2'), url('fonts/Pretendard-Regular.woff') format('woff');
+}
+@font-face {
+	font-family: 'Pretendard Web';
+	font-weight: 700;
+	font-display: block;
+	src: url('fonts/Pretendard-Bold.woff2') format('woff2'), url('fonts/Pretendard-Bold.woff') format('woff');
+}
+@font-face {
+	font-family: 'MaruBuri Web';
+	font-weight: 400;
+	font-display: block;
+	src: url('fonts/MaruBuri-Regular.woff2') format('woff2'), url('fonts/MaruBuri-Regular.woff') format('woff');
+}
+@font-face {
+	font-family: 'MaruBuri Web';
+	font-weight: 700;
+	font-display: block;
+	src: url('fonts/MaruBuri-Bold.woff2') format('woff2'), url('fonts/MaruBuri-Bold.woff') format('woff');
+}
+@font-face {
+	font-family: 'RIDIBatang Web';
+	font-weight: 400;
+	font-display: block;
+	src: url('fonts/RIDIBatang.woff2') format('woff2'), url('fonts/RIDIBatang.woff') format('woff');
+}
+html[style*="Pretendard"] {
+	font-feature-settings: 'cv12';
+}

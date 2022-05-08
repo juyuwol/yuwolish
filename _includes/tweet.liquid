@@ -1,0 +1,2 @@
+{%- capture tweet_snippet %}{% twitter include.url lang=ko omit_script=true %}{% endcapture -%}
+{{ tweet_snippet | tweet_content }}

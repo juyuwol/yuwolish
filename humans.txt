@@ -1,0 +1,7 @@
+/* SITE */
+  Generator: Jekyll
+  Theme:
+    Name: Yuwolish
+    Author: Ju Yuwol
+    License: MIT
+    Link: https://github.com/juyuwol/yuwolish

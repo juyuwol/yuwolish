@@ -1,0 +1,99 @@
+# 사이트 도메인. 마지막에 슬래시가 없어야 합니다.
+url: "http://example.com"
+
+title: "사이트명"
+description: "사이트에 대한 짧은 설명"
+about: |
+  **사이트에 대한 소개**를 적습니다.
+  
+  길게 여러 줄로 쓸 수 있습니다.
+
+  [Kramdown](https://kramdown.gettalong.org/quickref.html)(마크다운 방언) 형식이 지원됩니다.
+author:
+  name: "관리자명"
+
+  # 모든 페이지 하단에 반복되는 연락처 링크입니다.
+  # 원하는 만큼 복수 설정 가능합니다.
+  links:
+    -
+      label: "account@example.com"
+      url: "mailto:account@example.com"
+    -
+      label: "트위터 @twitter"
+      url: "https://twitter.com/twitter"
+
+# 파비콘의 경로.
+# 복수 설정 가능합니다.
+# 복수 설정 시 가로세로가 작은 것에서 큰 순으로 나열해 주세요.
+# 어지간해선 72x72 px PNG 이미지 1개면 충분합니다.
+# (72x72 px 미만이면 안드로이드 크롬에서 주소창에 표시되지 않기 때문에,
+# 72x72 px 이상의 파비콘을 1개 이상 포함시킬 것을 권장합니다.)
+# 설정과 별개로 디렉토리 최상위의 favicon.ico는 반드시 있어야 합니다.
+# 변환해서 준비해 주세요.
+favicons:
+  -
+    path: "/favicon.png"
+    sizes: "72x72"
+
+# true OR false | default: true
+# false 시 검색 엔진에 노출되는 것을 막습니다.
+searchable: true
+
+sass:
+  sourcemap: "never"
+
+collections:
+  posts:
+    permalink: "/:title:output_ext"
+
+exclude:
+  - "LICENSE"
+  - "README"
+  - "api"
+  - "netlify"
+  - "vercel"
+  - "vendor"
+
+timezone: "Asia/Seoul"
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
+      # 트위터에서 링크 시 띄워지는 카드에 사용될 이미지의 경로.
+      # 모든 페이지의 기본값을 설정합니다.
+      # 각 페이지의 front matter(머릿말)에서 개별적으로 설정할 수 있습니다.
+      image:
+        path: "/card.png"
+
+      # 트위터에서 링크 시 띄워지는 카드의 종류.
+      # "summary" OR "summary_large_image" | default: "summary"
+      # "summary" 시 정사각형 이미지와 함께 작은 카드가 나옵니다.
+      # "summary_large_image" 시 큰 2:1 이미지와 함께 큰 카드가 나옵니다.
+      # 각 페이지의 front matter(머릿말)에서 개별적으로 설정할 수 있습니다.
+      twitter:
+        card: "summary"
+
+
+kramdown:
+  auto_ids: false
+  smart_quotes:
+    - "apos"
+    - "apos"
+    - "quot"
+    - "quot"
+  typographic_symbols:
+    hellip: "..."
+    laquo: "<<"
+    laquo_space: "<< "
+    mdash: "---"
+    ndash: "--"
+    raquo: ">>"
+    raquo_space: " >>"
+
+plugins:
+  - "jekyll-feed"
+  - "jekyll-twitter-plugin"
