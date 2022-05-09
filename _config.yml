@@ -50,7 +50,9 @@ exclude:
   - "LICENSE"
   - "README"
   - "api"
+  - "doc"
   - "netlify"
+  - "screenshot"
   - "vercel"
   - "vendor"
 
