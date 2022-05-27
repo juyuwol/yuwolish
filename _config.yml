@@ -1,14 +1,18 @@
 # 사이트 도메인. 마지막에 슬래시가 없어야 합니다.
-url: "http://example.com"
+url: "" # http://example.com
 
-title: "사이트명"
-description: "사이트에 대한 짧은 설명"
+title: "유월리시" # 사이트명
+description: "개인 홈페이지용 Jekyll 테마" # 사이트에 대한 짧은 설명
+
+# 사이트에 대한 소개를 적습니다.
+# 마크다운(정확히는 그 방언인 Kramdown) 형식입니다.
 about: |
-  **사이트에 대한 소개**를 적습니다.
-  
-  길게 여러 줄로 쓸 수 있습니다.
+  **유월리시**(Yuwolish)는 텍스트 아카이빙에 최적화된 단순한 Jekyll 테마입니다.
 
-  [Kramdown](https://kramdown.gettalong.org/quickref.html)(마크다운 방언) 형식이 지원됩니다.
+  [개인 홈페이지](https://yuwol.pe.kr)에 사용하기 위해 만든 템플릿 코드를 테마화시켜 배포합니다.
+
+  [Github 저장소](https://github.com/juyuwol/yuwolish) <span aria-hidden="true">|</span> [포스타입 소개글](https://juyuwol.postype.com/post/12353935)
+
 author:
   name: "관리자명"
 
@@ -19,8 +23,8 @@ author:
       label: "account@example.com"
       url: "mailto:account@example.com"
     -
-      label: "트위터 @twitter"
-      url: "https://twitter.com/twitter"
+      label: "트위터 @username"
+      url: "https://twitter.com/"
 
 # 파비콘의 경로.
 # 복수 설정 가능합니다.
@@ -78,7 +82,6 @@ defaults:
       # 각 페이지의 front matter(머릿말)에서 개별적으로 설정할 수 있습니다.
       twitter:
         card: "summary"
-
 
 kramdown:
   auto_ids: false
