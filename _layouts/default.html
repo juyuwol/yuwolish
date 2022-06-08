@@ -14,6 +14,9 @@
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
   <link rel="stylesheet" href="{{ '/assets/default.css' | relative_url }}" />
   <script src="{{ '/assets/tools.js' | relative_url }}"></script>
+	{%- if page.password %}
+	<script src="{{ '/assets/decrypt.js' | relative_url }}"></script>
+	{%- endif %}
   {%- for script in page.scripts %}
   <script src="{{ script.path | relative_url }}"{% if script.attr %}{{ script.attr }}=""{% endif %}></script>
   {%- endfor %}
@@ -64,7 +67,25 @@
       {%- if page.date %}
       <p class="dateline"><time datetime="{{ page.date | date: '%F' }}">{{ page.date | date: '%Y년 %-m월 %-d일' }}</time> 발행</p>
       {%- endif %}
+      {%- if page.password %}
+      <div id="protected" data-encrypted="{{ content | strip | encrypt: page.password }}">
+        <script src="{{ '/assets/decrypt-save.js' | relative_url }}"></script>
+        <div id="auth">
+          <p>보호된 내용입니다.</p>
+          <p><label for="password">암호: </label><br />
+          <span id="password-box"><input id="password" type="password" /><button type="submit"><span>입력</span></button></span></p>
+          {%- if page.hint %}
+          <p><small>힌트: {{ page.hint }}</small></p>
+          {%- endif %}
+          <div id="protect-fallback" class="alert">
+            <p>스크립트가 작동하지 않아 보호된 내용의 잠금을 해제할 수 없습니다.</p>
+            <p>브라우저에서 자바스크립트가 비활성화되어 있거나, 네트워크 장애로 파일을 불러오지 못했을 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      {%- else %}
       {{ content | strip }}
+      {%- endif %}
     </div>
     {%- else %}
     <div id="content">

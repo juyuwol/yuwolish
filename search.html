@@ -10,16 +10,15 @@ scripts:
     path: "/assets/search.js"
 noindex: true
 ---
-<div id="search-box" hidden="">
+<div id="search-box">
 	<input id="search-field" type="search" aria-label="검색어" />
 	<button id="search-button" type="submit"><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="m7 2a1 1 0 000 9 1 1 0 000-9zm3 8 4 4" aria-hidden="true" focusable="false" /></svg>검색</span></button>
 </div>
 <p id="search-summary" role="status"></p>
-<div id="search-result" hidden="">
+<div id="search-result">
 	<p>{{ page.description }} 검색어를 입력해 주세요.</p>
 </div>
-<div id="search-failure">
-	<h2>오류 발생</h2>
+<div id="search-fallback" class="alert">
 	<p>스크립트가 작동하지 않아 검색을 할 수 없습니다.</p>
 	<p>브라우저에서 자바스크립트가 비활성화되어 있거나, 네트워크 장애로 파일을 불러오지 못했을 수 있습니다.</p>
 </div>

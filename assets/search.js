@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var result = document.getElementById('search-result');
 	var field = document.getElementById('search-field');
 	var summary = document.getElementById('search-summary');
-	var failure = document.getElementById('search-failure');
+	var fallback = document.getElementById('search-fallback');
 
 	if (!window._SEARCH_INDEX) {
 		document.documentElement.classList.remove('js-search');
@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (hasFocus) active.focus();
 	box = form;
 
-	result.hidden = false;
-	failure.parentNode.removeChild(failure);
+	fallback.parentNode.removeChild(fallback);
 
 	box.onsubmit = function(e) {
 		e.preventDefault();

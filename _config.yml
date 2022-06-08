@@ -102,3 +102,10 @@ kramdown:
 plugins:
   - "jekyll-feed"
   - "jekyll-twitter-plugin"
+
+# !경고!
+# false (기본값) 으로 설정 시 피드 파일에 비밀글 내용이 노출됩니다.
+# 피드 내용을 켜 두고 모든 보호글에 수동으로 excerpt_only를 설정할 수 있지만,
+# 자신이 무엇을 하는지 모른다면 손대지 마세요.
+feed:
+  excerpt_only: true
