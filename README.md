@@ -112,3 +112,4 @@ category: "fiction"
 1. v1.1.0
     - 보호글 기능 추가
     - 검색 기능 약간 수정
+    - [v1.0.0에서 v1.1.0으로의 업그레이드 패치 안내](https://github.com/juyuwol/yuwolish/releases/tag/v1.1.0)
